@@ -54,7 +54,7 @@ const tabs = [
                 />
                 <span class="relative inline-flex h-3 w-3 rounded-full bg-primary" />
               </span>
-              <Icon class="size-6" :icon="icon" />
+              <Icon aria-hidden="true" class="size-6" :icon="icon" />
               {{ name }}
             </button>
           </Tab>

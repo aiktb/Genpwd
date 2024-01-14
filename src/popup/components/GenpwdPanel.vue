@@ -39,13 +39,18 @@ const password = ref("zqsxeNYq?GzT9*9Wbym");
     <button
       class="flex items-center justify-center gap-1 rounded-3xl bg-primary px-5 py-0.5 text-sm text-white transition hover:bg-orange-800 focus-visible:bg-orange-800"
     >
-      <Icon class="size-5" icon="material-symbols:content-copy-outline-rounded" />
-      Copy Password
+      <Icon
+        aria-hidden="true"
+        class="size-5"
+        icon="material-symbols:content-copy-outline-rounded"
+      />
+      Copy password
     </button>
     <button
       class="group flex items-center justify-center gap-1 rounded-full bg-primary p-0.5 text-white transition hover:bg-orange-800 focus-visible:bg-orange-800"
     >
       <Icon
+        aria-hidden="true"
         class="size-5 transition-transform duration-500 group-hover:rotate-180"
         icon="material-symbols:sync-rounded"
       />
@@ -88,11 +93,12 @@ const password = ref("zqsxeNYq?GzT9*9Wbym");
       </label>
       <Popover class="relative flex">
         <PopoverButton
-          class="flex flex-1 items-center justify-center gap-2 rounded bg-orange-100 font-bold text-primary outline-none transition duration-300 hover:bg-primary hover:text-orange-100 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
+          class="flex flex-1 select-none items-center justify-center gap-2 rounded bg-orange-100 font-bold text-primary outline-none transition duration-300 hover:bg-primary hover:text-orange-100 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
         >
-          <Icon class="inline size-5" icon="material-symbols:app-registration" />
-          Choose Symbols Set
+          <Icon aria-hidden="true" class="inline size-5" icon="material-symbols:app-registration" />
+          Choose symbols set
           <Icon
+            aria-hidden="true"
             class="inline size-5 transition-transform duration-300 ui-open:rotate-180 ui-open:transform"
             icon="material-symbols:keyboard-double-arrow-down-rounded"
           />

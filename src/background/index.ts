@@ -28,7 +28,7 @@ Browser.runtime.onInstalled.addListener(async () => {
     lowercase: true,
     numbers: true,
     symbols: true,
-    charactersSet: "~!@#$%^&*-=_+",
+    charactersSet: "!@#$%^&*()_+-=[]{};':\",./<>?\\|`~",
   };
 
   const storage = new Storage();

@@ -26,7 +26,7 @@ const items = [
       any of your data to the cloud.
     </p>
     <label
-      class="flex select-none items-center justify-center gap-2 rounded border-2 border-orange-300 bg-sky-950 p-2 text-white dark:border-orange-500 dark:bg-slate-900"
+      class="mt-1 flex select-none items-center justify-center gap-2 rounded border-2 border-orange-300 bg-sky-950 px-2 py-1 text-white dark:border-orange-500 dark:bg-slate-900"
     >
       <Toggle v-model="saveHistory" />
       Turn on the history feature
@@ -40,11 +40,19 @@ const items = [
         <div class="flex items-center gap-1.5 text-white">
           <button class="rounded bg-primary p-[1px] transition duration-300 hover:bg-orange-900">
             <span class="sr-only">Copy</span>
-            <Icon class="size-4" icon="material-symbols:content-copy-outline-rounded" />
+            <Icon
+              aria-hidden="true"
+              class="size-4"
+              icon="material-symbols:content-copy-outline-rounded"
+            />
           </button>
           <button class="rounded bg-primary p-[1px] transition duration-300 hover:bg-orange-900">
             <span class="sr-only">Delete</span>
-            <Icon class="size-4" icon="material-symbols:delete-outline-rounded" />
+            <Icon
+              aria-hidden="true"
+              class="size-4"
+              icon="material-symbols:delete-outline-rounded"
+            />
           </button>
         </div>
       </li>
