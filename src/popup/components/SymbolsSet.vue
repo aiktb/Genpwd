@@ -41,13 +41,25 @@ const handleClick = (symbol: string) => {
         </button>
         <button
           class="col-span-2 flex h-5 cursor-pointer select-none items-center justify-center rounded-sm border-2 border-orange-300 bg-sky-950 bg-gradient-to-t from-primary to-orange-200 bg-clip-text font-bold text-transparent transition duration-200 hover:border-primary hover:text-primary dark:border-orange-200 dark:bg-slate-900 dark:hover:border-primary"
-          @click="emits('update:modelValue', defaultSymbols)"
+          @click="
+            () => {
+              if (props.modelValue !== defaultSymbols) {
+                emits('update:modelValue', defaultSymbols);
+              }
+            }
+          "
         >
           ALL
         </button>
         <button
           class="col-span-2 flex h-5 cursor-pointer select-none items-center justify-center rounded-sm border-2 border-orange-300 bg-sky-950 bg-gradient-to-t from-primary to-orange-200 bg-clip-text font-bold text-transparent transition duration-200 hover:border-primary hover:text-primary dark:border-orange-200 dark:bg-slate-900 dark:hover:border-primary"
-          @click="emits('update:modelValue', '')"
+          @click="
+            () => {
+              if (props.modelValue !== '') {
+                emits('update:modelValue', '');
+              }
+            }
+          "
         >
           NONE
         </button>

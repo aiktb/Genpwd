@@ -35,7 +35,9 @@ const handlePointerDown = (event: PointerEvent) => {
     const { clientX } = event;
     const percent = clamp((clientX - left) / width, 0, 1);
     const value = Math.round(percent * (props.max - props.min) + props.min);
-    emits("update:modelValue", value);
+    if (value !== props.modelValue) {
+      emits("update:modelValue", value);
+    }
   };
   const handlePointerMove = (event: PointerEvent) => {
     updateValue(event);
