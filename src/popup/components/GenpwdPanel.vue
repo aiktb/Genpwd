@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { Icon } from "@iconify/vue";
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 
 import { Storage } from "@plasmohq/storage";
 
@@ -98,10 +98,10 @@ const copy = () => {
     storage.set(StorageKey.HISTORY, settings.value.history);
   }
 };
-
+const copiedTipIsOpen = ref(false);
 const handleCtrlC = (event: KeyboardEvent) => {
   if (event.ctrlKey && event.key === "c" && !window.getSelection()?.toString()) {
-    copy();
+    handleCopyClick();
   }
 };
 
@@ -112,6 +112,19 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("keydown", handleCtrlC);
+});
+
+const handleCopyClick = () => {
+  copy();
+  copiedTipIsOpen.value = true;
+};
+
+watch(copiedTipIsOpen, (value) => {
+  if (value) {
+    setTimeout(() => {
+      copiedTipIsOpen.value = false;
+    }, 500);
+  }
 });
 </script>
 
@@ -140,9 +153,29 @@ onUnmounted(() => {
   </div>
   <div class="mt-3 flex items-center justify-around">
     <button
-      class="flex select-none items-center justify-center gap-1 rounded-3xl bg-primary px-4 py-0.5 text-sm text-white transition hover:bg-orange-800 focus-visible:bg-orange-800"
-      @click="copy"
+      class="relative flex select-none items-center justify-center gap-1 rounded-3xl bg-primary px-4 py-0.5 text-sm text-white transition hover:bg-orange-800 focus-visible:bg-orange-800"
+      @click="handleCopyClick"
     >
+      <Transition
+        enter-active-class="transition duration-200 ease-out"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="transition duration-150 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+      >
+        <div class="absolute -top-10" v-if="copiedTipIsOpen">
+          <div
+            class="rounded-md border-2 border-primary bg-orange-200 px-2.5 py-0.5 text-slate-950 dark:bg-slate-900 dark:text-white"
+          >
+            Copied!
+          </div>
+          <div
+            aria-hidden="true"
+            class="absolute bottom-0 left-1/2 z-10 size-2.5 -translate-x-1/2 translate-y-1/2 rotate-45 rounded-br border-b-2 border-r-2 border-primary bg-orange-200 dark:bg-slate-900"
+          />
+        </div>
+      </Transition>
       <Icon
         aria-hidden="true"
         class="size-5"
