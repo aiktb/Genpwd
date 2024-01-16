@@ -2,36 +2,42 @@ import Browser from "webextension-polyfill";
 
 import { Storage } from "@plasmohq/storage";
 
-export enum SettingEnum {
+export enum StorageKey {
   LENGTH = "length",
-  UPPERCASE = "uppercase",
-  LOWERCASE = "lowercase",
-  NUMBERS = "numbers",
-  SYMBOLS = "symbols",
-  CHARACTERS_SET = "charactersSet",
+  HAS_UPPERCASE = "hasUppercase",
+  HAS_LOWERCASE = "hasLowercase",
+  HAS_NUMBERS = "hasNumbers",
+  HAS_SYMBOLS = "hasSymbols",
+  SYMBOLS_SET = "symbolsSet",
+  IS_OPEN_HISTORY = "isOpenHistory",
+  HISTORY = "history",
 }
 
 export interface Settings {
-  [key: string]: string | number | boolean;
-  [SettingEnum.LENGTH]: number;
-  [SettingEnum.UPPERCASE]: boolean;
-  [SettingEnum.LOWERCASE]: boolean;
-  [SettingEnum.NUMBERS]: boolean;
-  [SettingEnum.SYMBOLS]: boolean;
-  [SettingEnum.CHARACTERS_SET]: string;
+  [key: string]: string | number | boolean | string[];
+  [StorageKey.LENGTH]: number;
+  [StorageKey.HAS_UPPERCASE]: boolean;
+  [StorageKey.HAS_LOWERCASE]: boolean;
+  [StorageKey.HAS_NUMBERS]: boolean;
+  [StorageKey.HAS_SYMBOLS]: boolean;
+  [StorageKey.SYMBOLS_SET]: string;
+  [StorageKey.IS_OPEN_HISTORY]: boolean;
+  [StorageKey.HISTORY]: string[];
 }
 
 Browser.runtime.onInstalled.addListener(async () => {
   const defaultSettings: Settings = {
-    length: 16,
-    uppercase: true,
-    lowercase: true,
-    numbers: true,
-    symbols: true,
-    charactersSet: "!@#$%^&*()_+-=[]{};':\",./<>?\\|`~",
+    [StorageKey.LENGTH]: 16,
+    [StorageKey.HAS_UPPERCASE]: true,
+    [StorageKey.HAS_LOWERCASE]: true,
+    [StorageKey.HAS_NUMBERS]: true,
+    [StorageKey.HAS_SYMBOLS]: true,
+    [StorageKey.SYMBOLS_SET]: "!@#$%^&*()_+-=[]{};':\",./<>?\\|`~",
+    [StorageKey.IS_OPEN_HISTORY]: true,
+    [StorageKey.HISTORY]: [],
   };
 
-  const storage = new Storage();
+  const storage = new Storage({ area: "local" });
   for (const key of Object.keys(defaultSettings)) {
     const oldConfig = await storage.get(key);
     if (!oldConfig) {

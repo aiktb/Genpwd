@@ -15,7 +15,7 @@ const getCharColor = (char: string) => {
 
 <template>
   <div>
-    <span v-for="char of props.password" :class="getCharColor(char)">
+    <span v-for="(char, index) of props.password" :key="index" :class="getCharColor(char)">
       {{ char }}
     </span>
   </div>

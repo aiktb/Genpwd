@@ -17,10 +17,10 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...typescript.configs.recommended.rules,
-      ...vue.configs["vue3-recommended"].rules,
+      ...vue.configs["vue3-essential"].rules,
       ...prettier.rules,
       "prefer-const": "error",
-      "vue/no-v-html": "off",
+      "vue/multi-word-component-names": "off",
     },
     plugins: {
       "@typescript-eslint": typescript,

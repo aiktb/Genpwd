@@ -36,6 +36,7 @@ const links = [
     <div class="flex items-center gap-3">
       <a
         v-for="{ text, href } of links"
+        :key="href"
         :href="href"
         target="_blank"
         class="cursor-pointer transition duration-300 hover:text-orange-800 hover:underline"

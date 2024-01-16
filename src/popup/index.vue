@@ -63,12 +63,11 @@ const tabs = [
           <TabPanel
             v-for="{ name, component } of tabs"
             :key="name"
-            :class="[
-              'rounded-xl p-3',
-              'ring-white/60 ring-offset-2 ring-offset-orange-400 focus:outline-none focus-visible:ring-2',
-            ]"
+            class="rounded-xl p-3 ring-white/60 ring-offset-2 ring-offset-orange-400 focus:outline-none focus-visible:ring-2"
           >
-            <component :is="component" />
+            <Suspense>
+              <component :is="component" />
+            </Suspense>
           </TabPanel>
         </TabPanels>
       </TabGroup>
