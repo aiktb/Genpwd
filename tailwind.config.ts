@@ -43,6 +43,15 @@ export default {
           src: "url('./fonts/intel-one-mono-regular.woff2') format('woff2')",
         },
       });
+      addBase({
+        "@font-face": {
+          fontDisplay: "swap",
+          fontFamily: "Intel One Mono",
+          fontStyle: "normal",
+          fontWeight: "bold",
+          src: "url('./fonts/intel-one-mono-bold.woff2') format('woff2')",
+        },
+      });
     }),
   ],
   theme: {
