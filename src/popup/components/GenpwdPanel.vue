@@ -129,21 +129,19 @@ watch(copiedTipIsOpen, (value) => {
 </script>
 
 <template>
-  <h1 class="mb-4 flex flex-col items-center justify-center text-lg font-bold">
-    <div class="relative items-center justify-center text-wrap text-center">
-      Obtaining your random
-      <span
-        class="animate-text-gradient bg-gradient-to-r from-primary from-20% via-indigo-500 to-primary to-80% bg-[size:200%] bg-clip-text text-transparent"
-      >
-        strong password
-      </span>
-    </div>
+  <h1 class="mb-4 whitespace-normal text-balance text-center text-lg font-bold">
+    Obtaining your random
+    <span
+      class="animate-text-gradient bg-gradient-to-r from-primary from-20% via-indigo-500 to-primary to-80% bg-[size:200%] bg-clip-text text-transparent"
+    >
+      strong password
+    </span>
   </h1>
   <div
     class="flex h-16 w-full items-center justify-center rounded-lg bg-orange-200 font-mono font-bold text-slate-950"
   >
     <div v-if="password.length" class="select-all text-center">
-      <Password :password="password" class="text-wrap break-all p-2" />
+      <Password :password="password" class="whitespace-normal text-wrap break-all p-2" />
     </div>
     <div v-else class="text-center font-sans">
       Please

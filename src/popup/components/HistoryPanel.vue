@@ -20,7 +20,7 @@ const copy = (text: string) => {
 
 <template>
   <div class="text-wrap text-sm">
-    <p class="text-center">
+    <p class="whitespace-normal text-center">
       This software
       <span class="text-primary">doesn&apos;t upload</span>
       any of your data to the cloud.
