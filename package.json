@@ -1,7 +1,7 @@
 {
   "name": "genpwd",
   "displayName": "Genpwd | Strong Password Generator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "private": true,
   "description": "A password generator that really meets your needs.",

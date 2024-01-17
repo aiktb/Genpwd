@@ -30,7 +30,7 @@ Special thanks to **_[plasmo](https://github.com/PlasmoHQ/plasmo)_** for taking 
 
 ## Preview
 
-![preview](./assets/social-preview-dark.jpg)
+![preview](./assets/social-preview-dark.png)
 
 ## Contribution
 
