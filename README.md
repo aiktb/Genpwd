@@ -2,13 +2,13 @@
     <img src="./assets/logo-with-text.svg" height="128" alt="Logo">
 </div>
 <p align="center">
-  <a href="">
+  <a href="https://chromewebstore.google.com/detail/mgbdfikhgmcmjaoknnpnggjklofmnbfh">
     <img alt="Google Chrome" src="https://img.shields.io/badge/Google%20Chrome-141e24?style=for-the-badge&logo=googlechrome&logoColor=%23ffffff">
   </a>
-  <a href="">
+  <a href="https://addons.mozilla.org/addon/genpwd/">
   	<img alt="Mozilla Firefox" src="https://img.shields.io/badge/Mozilla%20Firefox-141e24?style=for-the-badge&logo=firefoxbrowser&logoColor=%23ffffff">
   </a>
-  <a href="">
+  <a href="https://microsoftedge.microsoft.com/addons/detail/kohpoklaaeicnkdapjkmljdachedmbbi">
     <img alt="Microsoft Edge" src="https://img.shields.io/badge/Microsoft%20Edge-141e24?style=for-the-badge&logo=microsoftedge&logoColor=%23ffffff">
   </a>
 </p>
@@ -18,8 +18,6 @@
 🔑 A password generator that really meets your needs.
 
 Special thanks to **_[plasmo](https://github.com/PlasmoHQ/plasmo)_** for taking the frustration out of browser extension development for me.
-
-> This project has been developed and is waiting for approval by the browser extension store.
 
 ## Features
 
